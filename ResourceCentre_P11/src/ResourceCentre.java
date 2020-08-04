@@ -2,7 +2,6 @@ import java.util.ArrayList;
 
 public class ResourceCentre {
 
-	private static final int OPTION_START = 0;
 	private static final int ITEM_TYPE_CHROMEBOOK = 2;
 	private static final int ITEM_TYPE_CAMCORDER = 1;
 	private static final int OPTION_RETURN = 4;
@@ -20,9 +19,11 @@ public class ResourceCentre {
 		camcorderList.add(new Camcorder("CC002", "Panasonic HC-MDH2", 10));
 		chromebookList.add(new Chromebook("CB001", "ASUS Chromebook ", "Win 10"));
 		chromebookList.add(new Chromebook("CB002", "HP Chromebook", "Win 10"));
-		//jiawei
-		int option = OPTION_START;
-
+		
+		//Alyssa
+		int option = 0;
+		
+		//Alyssa - Fixed bracket issues, not able to run option 2-4 earlier on
 		while (option != OPTION_QUIT) {
 			//1233
 			ResourceCentre.menu();
@@ -32,11 +33,13 @@ public class ResourceCentre {
 			if (option == OPTION_VIEW) {
 
 				final boolean Display = option == 1;
+				
 			if (Display) {
 
 				// View all items
 				ResourceCentre.viewAllCamcorder(camcorderList);
 				ResourceCentre.viewAllChromebook(chromebookList);
+			}
 
 			} else if (option == OPTION_ADD) {
 				// Add a new item
@@ -102,8 +105,6 @@ public class ResourceCentre {
 			}
 
 		}}
-
-	}
 
 	private static void itemTypeMenu() {
 		ResourceCentre.setHeader("ITEM TYPES");
