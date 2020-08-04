@@ -303,6 +303,7 @@ public class ResourceCentre {
 		boolean isReturned = false;
 
 		for (int i = 0; i < chromebookList.size(); i++) {
+			//Daven
 			if (tag.equalsIgnoreCase(chromebookList.get(i).getAssetTag())
 					&& chromebookList.get(i).getIsAvailable() == false) {
 				chromebookList.get(i).setIsAvailable(true);
@@ -318,7 +319,9 @@ public class ResourceCentre {
 		// write your code here
 		ResourceCentre.viewAllChromebook(chromebookList);
 		String tag = Helper.readString("Enter asset tag > ");
-		Boolean isReturned = doReturnChromebook(chromebookList, tag);
+		//Daven
+		final boolean doReturnChromebook = doReturnChromebook(chromebookList, tag);
+		Boolean isReturned = doReturnChromebook;
 		
 		if (isReturned == false) {
 			System.out.println("Invalid asset tag");
