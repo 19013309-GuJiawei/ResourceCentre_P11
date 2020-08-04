@@ -155,13 +155,13 @@ public class ResourceCentre {
 
 			
 			//Jonathan 
-			String assetTag = camcorderList.get(i).getAssetTag();
-			String description = camcorderList.get(i).getDescription();
-			String showAvailability = ResourceCentre.showAvailability(camcorderList.get(i).getIsAvailable());
-			String dueDate = camcorderList.get(i).getDueDate();
-			int opticalZoom = camcorderList.get(i).getOpticalZoom();
-			output += String.format("%-10s %-30s %-10s %-10s %-20d\n", assetTag,
-					description, showAvailability,dueDate,opticalZoom);
+			//String assetTag = camcorderList.get(i).getAssetTag();
+			//String description = camcorderList.get(i).getDescription();
+			//String showAvailability = ResourceCentre.showAvailability(camcorderList.get(i).getIsAvailable());
+			//String dueDate = camcorderList.get(i).getDueDate();
+			//int opticalZoom = camcorderList.get(i).getOpticalZoom();
+			//output += String.format("%-10s %-30s %-10s %-10s %-20d\n", assetTag,
+			//		description, showAvailability,dueDate,opticalZoom);
 
 		}
 		return output;
@@ -193,12 +193,12 @@ public class ResourceCentre {
 
 			
 			//Jonathan
-			String assetTag = chromebookList.get(i).getAssetTag();
-			String description = chromebookList.get(i).getDescription();
-			String showAvailability = ResourceCentre.showAvailability(chromebookList.get(i).getIsAvailable());
-			String dueDate = chromebookList.get(i).getDueDate();
-			String os = chromebookList.get(i).getOs();
-			output += String.format("%-10s %-30s %-10s %-10s %-20s\n", assetTag,description, showAvailability,dueDate,os);
+			//String assetTag = chromebookList.get(i).getAssetTag();
+			//String description = chromebookList.get(i).getDescription();
+			//String showAvailability = ResourceCentre.showAvailability(chromebookList.get(i).getIsAvailable());
+			//String dueDate = chromebookList.get(i).getDueDate();
+			//String os = chromebookList.get(i).getOs();
+			//output += String.format("%-10s %-30s %-10s %-10s %-20s\n", assetTag,description, showAvailability,dueDate,os);
 		}
 		return output;
 	}
@@ -385,7 +385,7 @@ public class ResourceCentre {
 			boolean isAvailable = chromebookList.get(i).getIsAvailable();
 			if (tag.equalsIgnoreCase(assetTag)
 					&& isAvailable == false) {
-
+				
 				chromebookList.get(i).setIsAvailable(true);
 				chromebookList.get(i).setDueDate("");
 				isReturned = true;
