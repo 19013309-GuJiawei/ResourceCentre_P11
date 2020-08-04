@@ -219,13 +219,24 @@ public class ResourceCentre {
 
 	// ================================= Option 2 Add =================================
 	public static Camcorder inputCamcorder() {
-		String tag = Helper.readString("Enter asset tag > ");
-		String description = Helper.readString("Enter description > ");
+		//jiawei
+		String tag = ask_for_assetTag();
+		String description = ask_for_description();
 		int zoom = Helper.readInt("Enter optical zoom > ");
 
 		Camcorder cc = new Camcorder(tag, description, zoom);
 		return cc;
 
+	}
+	//jiawei
+	private static String ask_for_assetTag() {
+		String tag = Helper.readString("Enter asset tag > ");
+		return tag;
+	}
+	//jiawei
+	private static String ask_for_description() {
+		String description = Helper.readString("Enter description > ");
+		return description;
 	}
 
 	public static void addCamcorder(ArrayList<Camcorder> camcorderList, Camcorder cc) {
@@ -235,8 +246,10 @@ public class ResourceCentre {
 	}
 
 	public static Chromebook inputChromebook() {
-		String tag = Helper.readString("Enter asset tag > ");
-		String description = Helper.readString("Enter description > ");
+		//jiawei
+		String tag = ask_for_assetTag();
+		//jiawei
+		String description = ask_for_description();
 		String os = Helper.readString("Enter operating system > ");
 
 		Chromebook cb = new Chromebook(tag, description, os);
@@ -292,7 +305,7 @@ public class ResourceCentre {
 	}
 	//jiawei
 	private static String ask_for_AssetTag() {
-		String tag = Helper.readString("Enter asset tag > ");
+		String tag = ask_for_assetTag();
 		return tag;
 	}
 
