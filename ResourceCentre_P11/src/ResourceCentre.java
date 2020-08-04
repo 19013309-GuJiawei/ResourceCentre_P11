@@ -217,8 +217,7 @@ public class ResourceCentre {
 				"DUE DATE", "OPERATING SYSTEM");
 	}
 
-	// ================================= Option 2 Add
-	// =================================
+	// ================================= Option 2 Add =================================
 	public static Camcorder inputCamcorder() {
 		String tag = Helper.readString("Enter asset tag > ");
 		String description = Helper.readString("Enter description > ");
@@ -251,8 +250,7 @@ public class ResourceCentre {
 		System.out.println("Chromebook added");
 	}
 
-	// ================================= Option 3 Loan
-	// =================================
+	// ================================= Option 3 Loan =================================
 	public static boolean doLoanCamcorder(ArrayList<Camcorder> camcorderList, String tag, String dueDate) {
 
 		boolean isLoaned = false;
