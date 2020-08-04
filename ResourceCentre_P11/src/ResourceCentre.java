@@ -356,8 +356,8 @@ public class ResourceCentre {
 
 			}
 		}
-		return isReturned;
 		}
+		return isReturned;
 
 	}
 
