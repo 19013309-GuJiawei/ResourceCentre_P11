@@ -339,10 +339,17 @@ public class ResourceCentre {
 		boolean isReturned = false;
 
 		for (int i = 0; i < camcorderList.size(); i++) {
+
 			// Daven
 			final String assetTag = camcorderList.get(i).getAssetTag();
 			final boolean isAvailable = camcorderList.get(i).getIsAvailable();
 			if (tag.equalsIgnoreCase(assetTag) && isAvailable == false) {
+
+			//Daven
+			
+			if (tag.equalsIgnoreCase(assetTag)
+					&& isAvailable == false) {
+
 				camcorderList.get(i).setIsAvailable(true);
 				camcorderList.get(i).setDueDate("");
 				isReturned = true;
@@ -350,6 +357,7 @@ public class ResourceCentre {
 			}
 		}
 		return isReturned;
+		}
 
 	}
 
@@ -373,8 +381,8 @@ public class ResourceCentre {
 		for (int i = 0; i < chromebookList.size(); i++) {
 
 			//Daven
-			final String assetTag = chromebookList.get(i).getAssetTag();
-			final boolean isAvailable = chromebookList.get(i).getIsAvailable();
+			String assetTag = chromebookList.get(i).getAssetTag();
+			boolean isAvailable = chromebookList.get(i).getIsAvailable();
 			if (tag.equalsIgnoreCase(assetTag)
 					&& isAvailable == false) {
 
@@ -398,7 +406,7 @@ public class ResourceCentre {
 
 		
 		//Daven
-		final boolean doReturnChromebook = doReturnChromebook(chromebookList, tag);
+	    boolean doReturnChromebook = doReturnChromebook(chromebookList, tag);
 		Boolean isReturned = doReturnChromebook;
 		
 
