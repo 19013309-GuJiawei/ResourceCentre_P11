@@ -321,8 +321,9 @@ public class ResourceCentre {
 		//jiawei
 		String tag = ask_for_AssetTag();
 		String due = ask_for_dueDate();
-		Boolean isLoaned = doLoanChromebook(chromebookList, tag, due);
-		if (isLoaned == false) {
+		//Joshua
+		Boolean Loan = doLoanChromebook(chromebookList, tag, due);
+		if (Loan == false) {
 			System.out.println("Invalid asset tag");
 		} else {
 			System.out.println("Chromebook " + tag + " loaned out");
