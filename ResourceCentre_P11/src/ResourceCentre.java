@@ -313,8 +313,9 @@ public class ResourceCentre {
 		for (int i = 0; i < chromebookList.size(); i++) {
 			//Daven
 			final String assetTag = chromebookList.get(i).getAssetTag();
+			final boolean isAvailable = chromebookList.get(i).getIsAvailable();
 			if (tag.equalsIgnoreCase(assetTag)
-					&& chromebookList.get(i).getIsAvailable() == false) {
+					&& isAvailable == false) {
 				chromebookList.get(i).setIsAvailable(true);
 				chromebookList.get(i).setDueDate("");
 				isReturned = true;
