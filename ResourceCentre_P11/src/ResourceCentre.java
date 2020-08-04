@@ -371,10 +371,13 @@ public class ResourceCentre {
 		boolean isReturned = false;
 
 		for (int i = 0; i < chromebookList.size(); i++) {
-			//jiawei
-			String assetTag = chromebookList.get(i).getAssetTag();
+
+			//Daven
+			final String assetTag = chromebookList.get(i).getAssetTag();
+			final boolean isAvailable = chromebookList.get(i).getIsAvailable();
 			if (tag.equalsIgnoreCase(assetTag)
-					&& chromebookList.get(i).getIsAvailable() == false) {
+					&& isAvailable == false) {
+
 				chromebookList.get(i).setIsAvailable(true);
 				chromebookList.get(i).setDueDate("");
 				isReturned = true;
@@ -388,9 +391,16 @@ public class ResourceCentre {
 	public static void returnChromebook(ArrayList<Chromebook> chromebookList) {
 		// write your code here
 		ResourceCentre.viewAllChromebook(chromebookList);
+
 		//jiawei
 		String tag = ask_for_AssetTag();
-		Boolean isReturned = doReturnChromebook(chromebookList, tag);
+
+
+		
+		//Daven
+		final boolean doReturnChromebook = doReturnChromebook(chromebookList, tag);
+		Boolean isReturned = doReturnChromebook;
+		
 
 		if (isReturned == false) {
 			System.out.println("Invalid asset tag");
