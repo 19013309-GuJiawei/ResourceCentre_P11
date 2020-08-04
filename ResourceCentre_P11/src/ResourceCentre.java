@@ -20,7 +20,7 @@ public class ResourceCentre {
 		camcorderList.add(new Camcorder("CC002", "Panasonic HC-MDH2", 10));
 		chromebookList.add(new Chromebook("CB001", "ASUS Chromebook ", "Win 10"));
 		chromebookList.add(new Chromebook("CB002", "HP Chromebook", "Win 10"));
-
+		//jiawei
 		int option = OPTION_START;
 
 		while (option != OPTION_QUIT) {
@@ -40,7 +40,8 @@ public class ResourceCentre {
 
 			} else if (option == OPTION_ADD) {
 				// Add a new item
-				ResourceCentre.setHeader("ADD");			
+				ResourceCentre.setHeader("ADD");
+				//jiawei
 				itemTypeMenu();
 				
 				int itemType = Helper.readInt("Enter option to select item type > ");
@@ -61,7 +62,8 @@ public class ResourceCentre {
 
 			} else if (option == OPTION_LOAN) {
 				// Loan item
-				ResourceCentre.setHeader("LOAN");			
+				ResourceCentre.setHeader("LOAN");
+				//jiawei
 				itemTypeMenu();
 				
 				int itemType = Helper.readInt("Enter option to select item type > ");
@@ -78,7 +80,8 @@ public class ResourceCentre {
 
 			} else if (option == OPTION_RETURN) {
 				// Return item
-				ResourceCentre.setHeader("RETURN");				
+				ResourceCentre.setHeader("RETURN");	
+				//jiawei
 				itemTypeMenu();
 				
 				int itemType = Helper.readInt("Enter option to select item type > ");
@@ -140,24 +143,38 @@ public class ResourceCentre {
 	// =================================
 	public static String retrieveAllCamcorder(ArrayList<Camcorder> camcorderList) {
 		String output = "";
+		
 
 		for (int i = 0; i < camcorderList.size(); i++) {
+
 
 			output += String.format("%-10s %-30s %-10s %-10s %-20d\n", camcorderList.get(i).getAssetTag(),
 					camcorderList.get(i).getDescription(),
 					ResourceCentre.showAvailability(camcorderList.get(i).getIsAvailable()),
 					camcorderList.get(i).getDueDate(), camcorderList.get(i).getOpticalZoom());
+
+			
+			//Jonathan 
+			String assetTag = camcorderList.get(i).getAssetTag();
+			String description = camcorderList.get(i).getDescription();
+			String showAvailability = ResourceCentre.showAvailability(camcorderList.get(i).getIsAvailable());
+			String dueDate = camcorderList.get(i).getDueDate();
+			int opticalZoom = camcorderList.get(i).getOpticalZoom();
+			output += String.format("%-10s %-30s %-10s %-10s %-20d\n", assetTag,
+					description, showAvailability,dueDate,opticalZoom);
+
 		}
 		return output;
 	}
 
 	public static void viewAllCamcorder(ArrayList<Camcorder> camcorderList) {
 		ResourceCentre.setHeader("CAMCORDER LIST");
+		//jiawei
 		String output = format_for_Camcorder();
 		output += retrieveAllCamcorder(camcorderList);
 		System.out.println(output);
 	}
-
+	//jiawei
 	private static String format_for_Camcorder() {
 		return String.format("%-10s %-30s %-10s %-10s %-20s\n", "ASSET TAG", "DESCRIPTION", "AVAILABLE",
 				"DUE DATE", "OPTICAL ZOOM");
@@ -168,10 +185,20 @@ public class ResourceCentre {
 		// write your code here
 		for (int i = 0; i < chromebookList.size(); i++) {
 
+
 			output += String.format("%-10s %-30s %-10s %-10s %-20s\n", chromebookList.get(i).getAssetTag(),
 					chromebookList.get(i).getDescription(),
 					ResourceCentre.showAvailability(chromebookList.get(i).getIsAvailable()),
 					chromebookList.get(i).getDueDate(), chromebookList.get(i).getOs());
+
+			
+			//Jonathan
+			String assetTag = chromebookList.get(i).getAssetTag();
+			String description = chromebookList.get(i).getDescription();
+			String showAvailability = ResourceCentre.showAvailability(chromebookList.get(i).getIsAvailable());
+			String dueDate = chromebookList.get(i).getDueDate();
+			String os = chromebookList.get(i).getOs();
+			output += String.format("%-10s %-30s %-10s %-10s %-20s\n", assetTag,description, showAvailability,dueDate,os);
 		}
 		return output;
 	}
@@ -179,11 +206,12 @@ public class ResourceCentre {
 	public static void viewAllChromebook(ArrayList<Chromebook> chromebookList) {
 
 		ResourceCentre.setHeader("CHROMEBOOK LIST");
+		//jiawei
 		String output = format_for_Chromebook();
 		output += retrieveAllChromebook(chromebookList);
 		System.out.println(output);
 	}
-
+	//jiawei
 	private static String format_for_Chromebook() {
 		return String.format("%-10s %-30s %-10s %-10s %-20s\n", "ASSET TAG", "DESCRIPTION", "AVAILABLE",
 				"DUE DATE", "OPERATING SYSTEM");
@@ -249,6 +277,7 @@ public class ResourceCentre {
 
 	public static void loanCamcorder(ArrayList<Camcorder> camcorderList) {
 		ResourceCentre.viewAllCamcorder(camcorderList);
+		//jiawei
 		String tag = ask_for_AssetTag();
 		String due = ask_for_dueDate();
 		Boolean isLoaned = doLoanCamcorder(camcorderList, tag, due);
@@ -258,12 +287,12 @@ public class ResourceCentre {
 			System.out.println("Camcorder " + tag + " loaned out");
 		}
 	}
-
+	//jiawei
 	private static String ask_for_dueDate() {
 		String due = Helper.readString("Enter due date > ");
 		return due;
 	}
-
+	//jiawei
 	private static String ask_for_AssetTag() {
 		String tag = Helper.readString("Enter asset tag > ");
 		return tag;
@@ -292,6 +321,7 @@ public class ResourceCentre {
 	public static void loanChromebook(ArrayList<Chromebook> chromebookList) {
 		// write your code here
 		ResourceCentre.viewAllChromebook(chromebookList);
+		//jiawei
 		String tag = ask_for_AssetTag();
 		String due = ask_for_dueDate();
 		Boolean isLoaned = doLoanChromebook(chromebookList, tag, due);
@@ -324,6 +354,7 @@ public class ResourceCentre {
 	}
 
 	public static void returnCamcorder(ArrayList<Camcorder> camcorderList) {
+		//jiawei
 		ResourceCentre.viewAllCamcorder(camcorderList);
 		String tag = ask_for_AssetTag();
 		Boolean isReturned = doReturnCamcorder(camcorderList, tag);
@@ -340,6 +371,7 @@ public class ResourceCentre {
 		boolean isReturned = false;
 
 		for (int i = 0; i < chromebookList.size(); i++) {
+			//jiawei
 			String assetTag = chromebookList.get(i).getAssetTag();
 			if (tag.equalsIgnoreCase(assetTag)
 					&& chromebookList.get(i).getIsAvailable() == false) {
@@ -356,6 +388,7 @@ public class ResourceCentre {
 	public static void returnChromebook(ArrayList<Chromebook> chromebookList) {
 		// write your code here
 		ResourceCentre.viewAllChromebook(chromebookList);
+		//jiawei
 		String tag = ask_for_AssetTag();
 		Boolean isReturned = doReturnChromebook(chromebookList, tag);
 
